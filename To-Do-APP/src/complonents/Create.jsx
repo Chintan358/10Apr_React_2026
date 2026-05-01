@@ -4,6 +4,13 @@ import { useState } from "react";
 export const Create = ({ addtask }) => {
 
 
+
+
+      
+
+
+
+    
     var [data, setdata] = useState()
 
     const SetDataHandler = (e) => {
@@ -23,5 +30,5 @@ export const Create = ({ addtask }) => {
             <button onClick={addtaskHandler}>Submit</button>
         </form>
     </>
-    
+
 }
