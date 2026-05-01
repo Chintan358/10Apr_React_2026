@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Create } from "./complonents/Create"
 import { Display } from "./complonents/Display"
+import "bootstrap/dist/css/bootstrap.min.css"
 
 const App = () => {
 
@@ -17,10 +18,16 @@ const App = () => {
   }
 
   return <>
-    <h1>TODO APP</h1>
-    <Create addtask={addtask} />
-    <Display task={task} removetask={removetask} />
+    <div className="container">
+      <div className="row">
+        <div className="col-5 mx-auto card mt-5 p-5">
 
+          <h1 align='center'>TODO APP</h1>
+          <Create addtask={addtask} />
+          <Display task={task} removetask={removetask} />
+        </div>
+      </div>
+    </div>
   </>
 }
 
