@@ -1,26 +1,38 @@
+import { useRef } from "react"
 import { useEffect } from "react"
 
 export const Create = ({ addStudent, editstduent }) => {
 
 
+    const username = useRef()
+    const email = useRef()
+    const phone = useRef()
+
 
     const submitHandler = (e) => {
         e.preventDefault()
         var data = {
-            "username": e.target[0].value,
-            "email": e.target[1].value,
-            "phone": e.target[2].value
+            "username": username.current.value,
+            "email": email.current.value,
+            "phone": phone.current.value
         }
 
         addStudent(data)
-        e.target[0].value = ""
-        e.target[1].value = ""
-        e.target[2].value = ""
+        username.current.value = ""
+        email.current.value = ""
+        phone.current.value = ""
 
     }
 
     useEffect(() => {
-        alert("Hello")
+
+        if (editstduent.username != undefined) {
+            username.current.value = editstduent.username
+            email.current.value = editstduent.email
+            phone.current.value = editstduent.phone
+        }
+
+
     })
 
     return <div className="col-md-4">
@@ -32,17 +44,17 @@ export const Create = ({ addStudent, editstduent }) => {
                 <form onSubmit={submitHandler}>
                     <div className="mb-3">
                         <label className="form-label">Username</label>
-                        <input type="text" className="form-control" placeholder="Enter username" />
+                        <input type="text" className="form-control" placeholder="Enter username" ref={username} />
                     </div>
 
                     <div className="mb-3">
                         <label className="form-label">Email</label>
-                        <input type="email" className="form-control" placeholder="Enter email" />
+                        <input type="email" className="form-control" placeholder="Enter email" ref={email} />
                     </div>
 
                     <div className="mb-3">
                         <label className="form-label">Phone</label>
-                        <input type="text" className="form-control" placeholder="Enter phone" />
+                        <input type="text" className="form-control" placeholder="Enter phone" ref={phone} />
                     </div>
 
                     <button type="submit" className="btn btn-success w-100">Submit</button>

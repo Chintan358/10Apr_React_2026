@@ -12,8 +12,26 @@ const App = () => {
 
   const addStudent = (data) => {
 
-    const newArray = [...student, data]
-    setStudents(newArray)
+    const duplicate = student.find(ele => {
+      if (ele.username == data.username) {
+        return ele
+      }
+    })
+
+    if (duplicate) {
+
+      var newArray = student.filter(ele => {
+        return ele.username != duplicate.username
+      })
+      const updated = [...newArray, data]
+      setStudents(updated)
+      setEditStudent([])
+
+    }
+    else {
+      const newArray = [...student, data]
+      setStudents(newArray)
+    }
   }
 
   const deleteStudent = (name) => {
