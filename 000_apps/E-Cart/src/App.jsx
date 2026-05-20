@@ -4,6 +4,7 @@ import { Create } from './componants/Create'
 import { Display } from './componants/Display'
 import { Error } from './componants/Error'
 import { useState } from 'react'
+import { Container } from './componants/Container'
 
 const App = () => {
 
@@ -26,18 +27,16 @@ const App = () => {
   return <>
     <div className='container'>
 
-      <div className='row'>
-        <div className='col-6 mx-auto card p-5 mt-3'>
-          <Title />
-          <hr />
-          <Create addProduct={addProduct} />
-          <br />
-          {product.length > 0 ? <Display product={product} removeProduct={removeProduct} /> : <Error />}
-
-
-
-        </div>
-      </div>
+      <Container>
+        <Title />
+        <hr />
+        <Create addProduct={addProduct} />
+        <br />
+        {product.length > 0 ? <Display product={product} removeProduct={removeProduct} /> : <Error />}
+      </Container>
+      <Container>
+      <h2>Product details</h2>
+      </Container>
     </div>
   </>
 }

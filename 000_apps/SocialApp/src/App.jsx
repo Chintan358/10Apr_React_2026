@@ -4,6 +4,7 @@ import { Nav } from './components/Nav'
 import { Create } from './components/Create'
 import { Display } from './components/Display'
 import { useState } from 'react'
+import { Container } from './components/Container'
 const App = () => {
 
   const [tab, setTab] = useState("create")
@@ -36,19 +37,13 @@ const App = () => {
 
   }
 
-  return <><div class="container mt-5">
-    <div class="main-box">
-      <Title />
-      <Nav setTab={setTab} tab={tab} />
-      <div class="tab-content">
-        {tab == 'create' ? <Create addPost={addPost} /> : <Display post={post} deletePost={deletePost} addLikes={addLikes} />}
-
-
-      </div>
-    </div>
-
-  </div>
+  return <><Container>
+    <Title />
+    <Nav setTab={setTab} tab={tab} />
+    {tab == 'create' ? <Create addPost={addPost} /> : <Display post={post} deletePost={deletePost} addLikes={addLikes} />}
+  </Container>
   </>
+
 
 }
 
