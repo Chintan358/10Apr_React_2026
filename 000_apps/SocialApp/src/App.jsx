@@ -5,43 +5,20 @@ import { Create } from './components/Create'
 import { Display } from './components/Display'
 import { useState } from 'react'
 import { Container } from './components/Container'
+import ContextProvider from './components/MyContext'
+import { Outlet } from 'react-router-dom'
+import { Test } from './components/Test'
 const App = () => {
 
-  const [tab, setTab] = useState("create")
-  const [post, setPost] = useState([])
-
-  const addPost = (data) => {
-    setPost([...post, data])
-  }
-
-  const deletePost = (username) => {
-
-    setPost(post.filter(ele => {
-      if (ele.username != username) {
-        return ele
-      }
-    }))
-  }
-
-  const addLikes = (username) => {
-
-    const newArray = post.filter(ele => {
-      if (ele.username == username) {
-        ele.likes = ele.likes + 1
-      }
-      return ele
-    })
-
-    setPost(newArray);
-
-
-  }
-
-  return <><Container>
-    <Title />
-    <Nav setTab={setTab} tab={tab} />
-    {tab == 'create' ? <Create addPost={addPost} /> : <Display post={post} deletePost={deletePost} addLikes={addLikes} />}
-  </Container>
+  return <>
+    <ContextProvider>
+      <Container>
+        <Title />
+        <Nav />
+        <Outlet />
+      </Container>
+     
+    </ContextProvider>
   </>
 
 
