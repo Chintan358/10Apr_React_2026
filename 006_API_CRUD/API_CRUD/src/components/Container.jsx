@@ -5,11 +5,7 @@ export const Container = ({ children }) => {
 
         <h2 class="text-center mb-4">Product CRUD</h2>
 
-
-
-
         {children}
-
 
     </div>
 }

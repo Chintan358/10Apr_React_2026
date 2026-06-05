@@ -4,14 +4,8 @@ import { MyContext } from "./MyContext"
 
 export const Display = () => {
 
-    const { products } = useContext(MyContext)
+    const { products, deleteProduct, editProduct } = useContext(MyContext)
 
-    const deleteHandler = (id) => {
-
-        fetch(`https://6a1cf25dbcc4f20d5ca3b789.mockapi.io/products/${id}`, {
-            method: 'DELETE', // 1. Specify the HTTP method
-        });
-    }
 
     return <div class="card p-3">
         <h4> Product List <span><Link to="create" className="btn btn-success">ADD</Link></span></h4>
@@ -35,10 +29,10 @@ export const Display = () => {
                     <td>{ele.price}</td>
                     <td>{ele.qty}</td>
                     <td>
-                        <button class="btn btn-warning btn-sm">Edit</button>
+                        <button class="btn btn-warning btn-sm" onClick={() => editProduct(ele.id)}>Edit</button>
                     </td>
                     <td>
-                        <button class="btn btn-danger btn-sm" onClick={() => deleteHandler(ele.id)}>Delete</button>
+                        <button class="btn btn-danger btn-sm" onClick={() => deleteProduct(ele.id)}>Delete</button>
                     </td>
                 </tr>)}
 

@@ -1,0 +1,17 @@
+{
+  "users": [
+    {
+      "name": "hasti",
+      "email": "hasti@gmail.com",
+      "phone": "7485968574",
+      "id": "AAxPPSiiOhY"
+    },
+    {
+      "name": "hasti",
+      "email": "hasti@gmail.com",
+      "phone": "7485968574",
+      "id": "AAxPPSiiOhY"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

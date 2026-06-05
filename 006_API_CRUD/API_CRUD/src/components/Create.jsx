@@ -1,29 +1,50 @@
-import { useRef } from "react"
+import { useContext, useEffect, useRef } from "react"
 import { Link } from "react-router-dom"
+import { MyContext } from "./MyContext"
 
 
 export const Create = () => {
 
+    const { CreateProduct, product, updateProduct } = useContext(MyContext)
+
+
+    const id = useRef()
     const name = useRef()
     const price = useRef()
     const qty = useRef()
 
+
+
+
+    useEffect(() => {
+        if (product) {
+            id.current.value = product.id
+            name.current.value = product.name;
+            price.current.value = product.price;
+            qty.current.value = product.qty;
+        }
+    }, [product]);
+
     const submitHandler = (e) => {
         e.preventDefault()
 
+        const pid = id.current.value
         const data = {
             "name": name.current.value,
             "price": price.current.value,
             "qty": qty.current.value
         }
+        if (pid) {
 
-        fetch("https://6a1cf25dbcc4f20d5ca3b789.mockapi.io/products", {
-            method: 'POST', // 1. Specify the HTTP method
-            headers: {
-                'Content-Type': 'application/json' // 2. Tell the server to expect JSON
-            },
-            body: JSON.stringify(data) // 3. Stringify your data object into a text string
-        });
+            updateProduct(data, pid)
+        }
+        else {
+
+            CreateProduct(data)
+        }
+        name.current.value = ""
+        price.current.value = ""
+        qty.current.value = ""
 
     }
 
@@ -31,6 +52,7 @@ export const Create = () => {
         <h4>Add Product</h4>
 
         <form onSubmit={submitHandler}>
+            <input type="hidden" ref={id} />
             <div class="mb-3">
                 <label>Name</label>
                 <input type="text" class="form-control" placeholder="Enter Product Name" ref={name} />
