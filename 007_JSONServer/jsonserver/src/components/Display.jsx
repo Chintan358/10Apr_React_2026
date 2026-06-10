@@ -3,7 +3,7 @@ import { Store } from './Store'
 
 const Display = () => {
 
-    const { users } = useContext(Store)
+    const { users, destroy, retrive, search } = useContext(Store)
 
     return (
         <div class="col-md-8">
@@ -13,6 +13,8 @@ const Display = () => {
                 </div>
 
                 <div class="card-body">
+                    <input type="text" placeholder='search' className='form-control' onKeyUp={(e) => search(e.target.value)} />
+                    <br />
                     <table class="table table-bordered table-striped text-center">
                         <thead class="table-primary">
                             <tr>
@@ -20,20 +22,23 @@ const Display = () => {
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Phone</th>
+                                <th colSpan={2}>Action</th>
                             </tr>
                         </thead>
 
                         <tbody id="userTable">
 
-                            {users.map((ele,index)=>  <tr>
-                                <td>{index+1}</td>
+                            {users.map((ele, index) => <tr>
+                                <td>{index + 1}</td>
                                 <td>{ele.name}</td>
                                 <td>{ele.email}</td>
                                 <td>{ele.phone}</td>
+                                <td><button className='btn btn-danger' onClick={() => destroy(ele.id)}>Delete</button></td>
+                                <td><button className='btn btn-primary' onClick={() => retrive(ele.id)}>Update</button></td>
                             </tr>)}
-                          
 
-                           
+
+
                         </tbody>
 
                     </table>

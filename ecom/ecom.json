@@ -1,0 +1,152 @@
+{
+    "categories": [
+        {
+            "id": "cat001",
+            "name": "Electronics",
+            "image": "https://picsum.photos/seed/electronics/400/300"
+        },
+        {
+            "id": "cat002",
+            "name": "Fashion",
+            "image": "https://picsum.photos/seed/fashion/400/300"
+        },
+        {
+            "id": "cat003",
+            "name": "Home & Kitchen",
+            "image": "https://picsum.photos/seed/home/400/300"
+        },
+        {
+            "id": "cat004",
+            "name": "Sports",
+            "image": "https://picsum.photos/seed/sports/400/300"
+        },
+        {
+            "id": "cat005",
+            "name": "Books",
+            "image": "https://picsum.photos/seed/books/400/300"
+        }
+    ],
+    "products": [
+        {
+            "id": "prd001",
+            "name": "Samsung Smart TV 43 Inch",
+            "price": 32999,
+            "qty": 12,
+            "image": "https://picsum.photos/seed/tv/400/300",
+            "categoryId": "cat001"
+        },
+        {
+            "id": "prd002",
+            "name": "Wireless Bluetooth Headphones",
+            "price": 2499,
+            "qty": 35,
+            "image": "https://picsum.photos/seed/headphone/400/300",
+            "categoryId": "cat001"
+        },
+        {
+            "id": "prd003",
+            "name": "Gaming Mouse",
+            "price": 1299,
+            "qty": 50,
+            "image": "https://picsum.photos/seed/mouse/400/300",
+            "categoryId": "cat001"
+        },
+        {
+            "id": "prd004",
+            "name": "Men's Casual Shirt",
+            "price": 899,
+            "qty": 40,
+            "image": "https://picsum.photos/seed/shirt/400/300",
+            "categoryId": "cat002"
+        },
+        {
+            "id": "prd005",
+            "name": "Women's Denim Jacket",
+            "price": 1799,
+            "qty": 22,
+            "image": "https://picsum.photos/seed/jacket/400/300",
+            "categoryId": "cat002"
+        },
+        {
+            "id": "prd006",
+            "name": "Running Shoes",
+            "price": 2499,
+            "qty": 18,
+            "image": "https://picsum.photos/seed/shoes/400/300",
+            "categoryId": "cat002"
+        },
+        {
+            "id": "prd007",
+            "name": "Non-Stick Cookware Set",
+            "price": 3499,
+            "qty": 15,
+            "image": "https://picsum.photos/seed/cookware/400/300",
+            "categoryId": "cat003"
+        },
+        {
+            "id": "prd008",
+            "name": "Electric Kettle",
+            "price": 999,
+            "qty": 28,
+            "image": "https://picsum.photos/seed/kettle/400/300",
+            "categoryId": "cat003"
+        },
+        {
+            "id": "prd009",
+            "name": "Dining Table Set",
+            "price": 12999,
+            "qty": 5,
+            "image": "https://picsum.photos/seed/dining/400/300",
+            "categoryId": "cat003"
+        },
+        {
+            "id": "prd010",
+            "name": "Cricket Bat",
+            "price": 1599,
+            "qty": 20,
+            "image": "https://picsum.photos/seed/cricket/400/300",
+            "categoryId": "cat004"
+        },
+        {
+            "id": "prd011",
+            "name": "Football",
+            "price": 799,
+            "qty": 30,
+            "image": "https://picsum.photos/seed/football/400/300",
+            "categoryId": "cat004"
+        },
+        {
+            "id": "prd012",
+            "name": "Yoga Mat",
+            "price": 699,
+            "qty": 45,
+            "image": "https://picsum.photos/seed/yogamat/400/300",
+            "categoryId": "cat004"
+        },
+        {
+            "id": "prd013",
+            "name": "Java Programming Guide",
+            "price": 499,
+            "qty": 60,
+            "image": "https://picsum.photos/seed/java/400/300",
+            "categoryId": "cat005"
+        },
+        {
+            "id": "prd014",
+            "name": "Python for Beginners",
+            "price": 599,
+            "qty": 55,
+            "image": "https://picsum.photos/seed/python/400/300",
+            "categoryId": "cat005"
+        },
+        {
+            "id": "prd015",
+            "name": "Web Development Handbook",
+            "price": 799,
+            "qty": 25,
+            "image": "https://picsum.photos/seed/webdev/400/300",
+            "categoryId": "cat005"
+        }
+    ],
+    "$schema": "./node_modules/json-server/schema.json"
+}

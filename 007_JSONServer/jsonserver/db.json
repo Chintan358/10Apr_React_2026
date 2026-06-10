@@ -7,10 +7,28 @@
       "id": "AAxPPSiiOhY"
     },
     {
-      "name": "hasti",
-      "email": "hasti@gmail.com",
-      "phone": "7485968574",
-      "id": "AAxPPSiiOhY"
+      "name": "Tech",
+      "email": "mg7623136@gmail.com",
+      "phone": "45658854555",
+      "id": "wNgB0waM-To"
+    },
+    {
+      "name": "test1",
+      "email": "mg7623136@gmail.com",
+      "phone": "hgfhgf",
+      "id": "PyxRv42f64U"
+    },
+    {
+      "name": "Tech",
+      "email": "mg7623136@gmail.com",
+      "phone": "45658854555",
+      "id": "atdBxB-xGhI"
+    },
+    {
+      "name": "Get Me",
+      "email": "chintan.tops@gmail.com",
+      "phone": "45658854555",
+      "id": "-4XkYV0csa8"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

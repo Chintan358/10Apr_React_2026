@@ -2,14 +2,25 @@ import { useEffect, useState } from "react"
 
 export const Home = () => {
     const [products, setProducts] = useState([])
-
+    const [categories, setCategories] = useState([])
     useEffect(() => {
 
-
-        fetch("https://dummyjson.com/products").then(resp => {
+        fetch("http://localhost:5000/products?_embed=category").then(resp => {
             return resp.json()
         }).then(result => {
-            setProducts(result.products);
+
+            setProducts(result);
+
+        }).catch(error => {
+            console.log(error);
+
+        })
+
+        fetch("http://localhost:5000/categories").then(resp => {
+            return resp.json()
+        }).then(result => {
+
+            setCategories(result);
 
         }).catch(error => {
             console.log(error);
@@ -18,6 +29,20 @@ export const Home = () => {
 
     }, [])
 
+    const filterProduct = (catid) => {
+
+        fetch(`http://localhost:5000/products?_embed=category&categoryId=${catid}`).then(resp => {
+            return resp.json()
+        }).then(result => {
+
+            setProducts(result);
+
+        }).catch(error => {
+            console.log(error);
+
+        })
+
+    }
 
     return <main className="main">
 
@@ -37,7 +62,7 @@ export const Home = () => {
             </div>
         </section>
 
-        <section className="categories container section">
+        {/* <section className="categories container section">
             <h3 className="section__title"><span>Popular</span> Categories</h3>
             <div className="categories__container swiper">
                 <div className="swiper-wrapper">
@@ -114,16 +139,14 @@ export const Home = () => {
                     <i className="fi fi-rs-angle-right"></i>
                 </div>
             </div>
-        </section>
+        </section> */}
 
 
         <section className="products container section">
             <div className="tab__btns">
-                <span className="tab__btn active-tab" data-target="#featured"
-                >Featured</span
-                >
-                <span className="tab__btn" data-target="#popular">Popular</span>
-                <span className="tab__btn" data-target="#new-added">New Added</span>
+                {categories.map(ele => <span className="tab__btn" onClick={() => filterProduct(ele.id)}><img src={ele.image} height={"25px"} width={"25px"} />{ele.name}</span>)}
+
+
             </div>
 
             <div className="tab__items">
@@ -133,12 +156,12 @@ export const Home = () => {
                             <div className="product__banner">
                                 <a href="details.html" className="product__images">
                                     <img
-                                        src={ele.images}
+                                        src={ele.image}
                                         alt=""
                                         className="product__img default"
                                     />
                                     <img
-                                        src={ele.images}
+                                        src={ele.image}
                                         alt=""
                                         className="product__img hover"
                                     />
@@ -158,10 +181,10 @@ export const Home = () => {
                                         <i className="fi fi-rs-shuffle"></i>
                                     </a>
                                 </div>
-                                <div className="product__badge light-pink">Hot</div>
+                                <div className="product__badge light-pink">{ele.category.name}</div>
                             </div>
                             <div className="product__content">
-                                <span className="product__category">{ele.category}</span>
+                                <span className="product__category"></span>
                                 <a href="details.html">
                                     <h3 className="product__title">{ele.title}</h3>
                                 </a>
