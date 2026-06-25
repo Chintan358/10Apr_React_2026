@@ -1,9 +1,20 @@
 import React, { useContext } from 'react'
-import { MyContext } from '../MyContext'
+import { MyContext, useMyContext } from '../MyContext'
+import { auth } from '../authconfig'
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from 'firebase/auth'
 
 const List = () => {
 
-    const { users, deleteUser, retriveData } = useContext(MyContext)
+    const { users, deleteUser, retriveData } = useMyContext()
+
+
+    const logout = async () => {
+        try {
+            await signOut(auth)
+        } catch (error) {
+            alert(error)
+        }
+    }
 
     return (
         <div class="col-md-8">
@@ -55,11 +66,15 @@ const List = () => {
                             </tbody>
 
                         </table>
+                        <button class="btn btn-sm btn-danger" onClick={() => logout()}>
+                            Logout
+                        </button>
                     </div>
 
                 </div>
             </div>
         </div>
+
 
     )
 }

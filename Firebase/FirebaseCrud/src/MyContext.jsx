@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 export const MyContext = createContext()
 import { collection, addDoc, getDocs, doc, updateDoc, deleteDoc, getDoc } from 'firebase/firestore'
@@ -9,6 +9,7 @@ export const ContextProvider = ({ children }) => {
 
     const [users, setUsers] = useState([])
     const [user, setUser] = useState()
+    const [session, setSession] = useState()
 
     const collectionRef = collection(db, "users")
     const getUsers = async () => {
@@ -65,7 +66,11 @@ export const ContextProvider = ({ children }) => {
         getUsers()
     }, [])
 
-    return <MyContext.Provider value={{ users, addUser, deleteUser, user, retriveData, updateUser }}>
+    return <MyContext.Provider value={{ users, addUser, deleteUser, user, retriveData, updateUser, session, setSession }}>
         {children}
     </MyContext.Provider>
+}
+
+export const useMyContext = () => {
+    return useContext(MyContext)
 }
