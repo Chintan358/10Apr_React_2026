@@ -1,4 +1,5 @@
 import ContextProvider from "./components/Mycontext"
+import UseCallback from "./components/UseCallback"
 import { UseEffect } from "./components/UseEffect"
 import UseMemo from "./components/UseMemo"
 import { UseReducer } from "./components/UseReducer"
@@ -29,6 +30,7 @@ const App = () => {
     </ContextProvider> */}
 
     {/* <UseMemo /> */}
+    <UseCallback />
   </>
 }
 
